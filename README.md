@@ -8,6 +8,7 @@ Script to take audio and run it through Audacity to normalize volumes, add a lim
 ## Contents
 - audacity_script.txt
 Nyquist script through Audacity to normalize volumes, add limiter, add compressor
+
 - processor.cs
 C# script to run the process of extracting audio, running audacity_script.txt, recombining audio and video.
 
