@@ -1,0 +1,30 @@
+;nyquist plug-in
+;version 4
+;type process
+;name "Normalize, Limit, Compress"
+
+; Normalize Audio
+; Maximum peak level without clipping
+(voice (norm 1.0))
+
+; Apply Limiter
+; The threshold is set to -6 dB, ratio to 10:1, attack time to 0.1 seconds, and release time to 1.0 seconds
+(multichan-expand #'compress-mult
+  *track*
+  :threshold -6
+  :ratio 10
+  :attack 0.1
+  :release 1.0
+  :make-up-gain t)
+
+; Apply Compressor
+; The threshold is set to -12 dB, ratio to 2:1, attack time to 0.2 seconds, and release time to 0.5 seconds
+(multichan-expand #'compress-mult
+  *track*
+  :threshold -12
+  :ratio 2
+  :attack 0.2
+  :release 0.5
+  :make-up-gain t)
+
+
